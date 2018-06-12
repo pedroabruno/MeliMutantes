@@ -2,6 +2,8 @@ package com.mutantes.springbootmutantes.services;
 
 import org.springframework.stereotype.Component;
 
+import com.mutantes.springbootmutantes.clases.Persona;
+
 import exceptions.BusinessException;
 
 @Component
@@ -22,10 +24,11 @@ public class MutantService implements MutantServiceInterface  {
 		boolean resultado = false ;
 		
 		validarCadenaAdn(cadenaAdn);
-		existeUsuarioEnBd(cadenaAdn);
 		
-		if(resultado) {
-			return resultado;
+		Persona persona = getPersona(cadenaAdn);
+		
+		if(persona != null) {
+			return persona.isEsMutante();
 		}else{
 			char matrizadn[][] = getMatrizAdn(cadenaAdn);
 			int totalesHorizontales = getTotalHorizontales(matrizadn);
@@ -36,6 +39,8 @@ public class MutantService implements MutantServiceInterface  {
 			System.out.println("total Verticales : " + totalesVerticales);
 			System.out.println("total Oblicuas : " + totalOblicuas);
 
+			agregarPersonaBD(cadenaAdn, totalesHorizontales + totalesVerticales + totalOblicuas);
+			
 			return (totalesHorizontales + totalesVerticales + totalOblicuas) >= 2 ;
 		}
 
@@ -192,7 +197,11 @@ public class MutantService implements MutantServiceInterface  {
 		return columnaAdn;
 	}
 	
-	private boolean existeUsuarioEnBd(String cadenaAdn[]) {
-		return false;
+	private Persona getPersona(String cadenaAdn[]) {
+		return null;
+	}
+	
+	private synchronized  void agregarPersonaBD(String cadenaAdn[], int totalRepeticiones) {
+		//Agregar Persona BD
 	}
 }

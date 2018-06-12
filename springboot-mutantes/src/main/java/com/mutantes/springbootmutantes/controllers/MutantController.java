@@ -18,7 +18,6 @@ import com.mutantes.springbootmutantes.services.MutantService;
 import exceptions.BusinessException;
 
 @RestController
-@SpringBootApplication
 public class MutantController {
 
 	@Autowired
@@ -30,10 +29,8 @@ public class MutantController {
     public Response isMutant(@RequestBody String cadenaAdn[]) {
 		try {
 			if (mutantService.isMutant(cadenaAdn)) {
-				System.out.println("Ok");
 				return Response.ok().build();
 			} else {
-				System.out.println("mal");
 				return Response.status(403).build();
 			}
 		}catch(BusinessException e) {
@@ -48,9 +45,4 @@ public class MutantController {
 		return mutantService.getMutantStats();
 	}
 	
-	@GetMapping("/cumbia")
-	  public String hello() {
-	    return "cumbiaPapa!";
-	  }
-
 }
