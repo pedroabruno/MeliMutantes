@@ -18,8 +18,13 @@ version="2.5">
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    
+    <servlet>
+   	<servlet-name>Guestbook</servlet-name>
+   	<servlet-class>com.mutantes.springbootmutantest</servlet-class>
+	</servlet>
     <servlet-mapping>
-    	<servlet-name>ServletMutant</servlet-name>
+    	<servlet-name>Guestbook</servlet-name>
     	<url-pattern>/stats</url-pattern>
     </servlet-mapping>
 </web-app>
