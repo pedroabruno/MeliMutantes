@@ -16,4 +16,15 @@ version="2.5">
 		<url-pattern>/welcome</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>MutantServlet</servlet-name>
+		<servlet-class>com.mutantes.springbootmutantes.controllers.MutantServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>MutantServlet</servlet-name>
+		<url-pattern>/isMutant</url-pattern>
+	</servlet-mapping>
+	
 </web-app>

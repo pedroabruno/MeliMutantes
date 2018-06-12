@@ -8,12 +8,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class Servlet extends HttpServlet {
+public class MutantServlet extends HttpServlet {
 	private static final long serialVersionUID = -1641096228274971485L;
+
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String cadenaAdn = request.getParameter("cadenaAdn");
 		
+		response.setContentType("text/html");
+		response.setCharacterEncoding("UTF-8");
 		final String CONTENT_TYPE = "text/html; charset=windows-1252";
 
 	    response.setContentType(CONTENT_TYPE);
@@ -24,7 +27,8 @@ public class Servlet extends HttpServlet {
 	    out.println("<p>The servlet has received a GET. This is the reply.</p>");
 	    out.println("</body></html>");
 	    out.close();
+	    
+	    System.out.println(cadenaAdn);
 	}
-	
 	
 }
