@@ -45,10 +45,5 @@ public class MutantController {
 	public String getMutantStats() {
 		return mutantService.getMutantStats();
 	}
-	
-	@GetMapping("/cumbia")
-	  public String hello() {
-	    return "CUMBIA PIOLA!";
-	 }
-	
+
 }
