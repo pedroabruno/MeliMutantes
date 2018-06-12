@@ -15,7 +15,6 @@ import com.mutantes.springbootmutantes.services.MutantService;
 
 import exceptions.BusinessException;
 
-@Path("/MutantServices")
 @RestController
 public class MutantController {
 
